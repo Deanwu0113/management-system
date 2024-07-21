@@ -91,7 +91,7 @@
       </thead>
       <tbody>
         <tr>
-          <td>Vuexy Admin Template</td>
+          <td>Nimpression Admin Template</td>
           <td>HTML Admin Template</td>
           <td>$32</td>
           <td>1</td>

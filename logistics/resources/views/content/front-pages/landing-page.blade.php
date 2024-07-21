@@ -165,7 +165,7 @@ $configData = Helper::appClasses();
                         <img src="{{asset('assets/img/front-pages/branding/logo-1.png')}}" alt="client logo" class="client-logo img-fluid" />
                       </div>
                       <p>
-                        “Vuexy is hands down the most useful front end Bootstrap theme I've ever used. I can't wait
+                        “Nimpression is hands down the most useful front end Bootstrap theme I've ever used. I can't wait
                         to use it again for my next project.”
                       </p>
                       <div class="text-warning mb-4">
