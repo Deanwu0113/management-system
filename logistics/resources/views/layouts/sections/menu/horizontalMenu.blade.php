@@ -1,12 +1,25 @@
 @php
   use Illuminate\Support\Facades\Route;
   $configData = Helper::appClasses();
+
+  // 预处理菜单数据，过滤掉不需要的子菜单项
+  $horizontalFilteredMenu = collect($menuData[1]->menu)->filter(function ($menu) {
+    // 过滤Apps & Pages子菜单，移除eCommerce, Academy和Wizard Examples
+    if (isset($menu->submenu)) {
+      $menu->submenu = collect($menu->submenu)->filter(function ($submenu) {
+        return !in_array($submenu->name, ['eCommerce', 'Academy', 'Wizard Examples']);
+      })->values()->all();
+    }
+
+    return true;
+  })->values()->all();
 @endphp
+
 <!-- Horizontal Menu -->
 <aside id="layout-menu" class="layout-menu-horizontal menu-horizontal  menu bg-menu-theme flex-grow-0">
   <div class="{{$containerNav}} d-flex h-100">
     <ul class="menu-inner pb-2 pb-xl-0">
-      @foreach ($menuData[1]->menu as $menu)
+      @foreach ($horizontalFilteredMenu as $menu)
 
       {{-- active menu method --}}
       @php

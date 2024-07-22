@@ -1,14 +1,60 @@
 @php
-use Illuminate\Support\Facades\Route;
-$configData = Helper::appClasses();
+  use Illuminate\Support\Facades\Route;
+  $configData = Helper::appClasses();
+
+  // 获取菜单数据
+  $menuItems = $menuData[0]->menu;
+
+  // 找到Logistics菜单项
+  $logisticsMenu = null;
+  foreach ($menuItems as $key => $menu) {
+    if (isset($menu->name) && $menu->name === 'Logistics') {
+      $logisticsMenu = $menu;
+      unset($menuItems[$key]);
+      break;
+    }
+  }
+
+  // 将Logistics菜单项移到数组开头
+  if ($logisticsMenu) {
+    array_unshift($menuItems, $logisticsMenu);
+  }
+
+  // 过滤菜单项
+  $filteredMenu = collect($menuItems)->filter(function ($menu) {
+    // 移除不需要的菜单项
+    if (isset($menu->name) && in_array($menu->name, [
+      'Dashboards', 'Layouts', 'Front Pages', 'Laravel Example', 'eCommerce',
+      'Academy', 'Wizard Examples', 'Modal Examples', 'Cards', 'User interface',
+      'Extended UI', 'Icons', 'Form Elements', 'Form Layouts', 'Form Wizard',
+      'Form Validation', 'Tables', 'Datatables', 'Support', 'Documentation', 'Charts', 'Pages', 'Roles & Permissions'
+    ])) {
+      return false;
+    }
+
+    // 移除特定的menuHeader
+    if (isset($menu->menuHeader) && in_array($menu->menuHeader, ['Components', 'Forms & Tables', 'Charts & Maps', 'Apps & Pages', 'Misc'])) {
+      return false;
+    }
+
+    return true;
+  })->values()->all();
+
+  // 过滤掉 Users 菜单的 View 子菜单
+  foreach ($filteredMenu as $menu) {
+    if (isset($menu->name) && $menu->name === 'Users' && isset($menu->submenu)) {
+      $menu->submenu = array_filter($menu->submenu, function ($submenu) {
+        return $submenu->name !== 'View';
+      });
+    }
+  }
 @endphp
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 
-  <!-- ! Hide app brand if navbar-full -->
   @if(!isset($navbarFull))
     <div class="app-brand demo">
-      <a href="{{url('/')}}" class="app-brand-link">
+      <a href="{{url('/app/logistics/dashboard')}}" class="app-brand-link">
         <span class="app-brand-logo demo">@include('_partials.macros',["height"=>20])</span>
         <span class="app-brand-text demo menu-text fw-bold">{{config('variables.templateName')}}</span>
       </a>
@@ -23,7 +69,7 @@ $configData = Helper::appClasses();
   <div class="menu-inner-shadow"></div>
 
   <ul class="menu-inner py-1">
-    @foreach ($menuData[0]->menu as $menu)
+    @foreach ($filteredMenu as $menu)
 
       {{-- adding active and open class if child is active --}}
 
@@ -65,9 +111,6 @@ $configData = Helper::appClasses();
             <i class="{{ $menu->icon }}"></i>
           @endisset
           <div>{{ isset($menu->name) ? __($menu->name) : '' }}</div>
-          @isset($menu->badge)
-            <div class="badge bg-{{ $menu->badge[0] }} rounded-pill ms-auto">{{ $menu->badge[1] }}</div>
-          @endisset
         </a>
 
         {{-- submenu --}}
@@ -76,6 +119,7 @@ $configData = Helper::appClasses();
         @endisset
       </li>
       @endif
+
     @endforeach
   </ul>
 
