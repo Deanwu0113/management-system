@@ -27,7 +27,7 @@
       'Dashboards', 'Layouts', 'Front Pages', 'Laravel Example', 'eCommerce',
       'Academy', 'Wizard Examples', 'Modal Examples', 'Cards', 'User interface',
       'Extended UI', 'Icons', 'Form Elements', 'Form Layouts', 'Form Wizard',
-      'Form Validation', 'Tables', 'Datatables', 'Support', 'Documentation', 'Charts', 'Pages', 'Roles & Permissions'
+      'Form Validation', 'Tables', 'Datatables', 'Support', 'Documentation', 'Charts', 'Pages'
     ])) {
       return false;
     }
