@@ -111,13 +111,24 @@
               <span>(123) 456-7890</span>
             </li>
             <li class="mb-2">
-              <span class="h6">Languages:</span>
-              <span>French</span>
+              <span class="h6">Folklift License</span>
+              <span>Active</span>
             </li>
             <li class="mb-2">
-              <span class="h6">Country:</span>
-              <span>England</span>
+              <span class="h6">Danger Goods</span>
+              <span>Active</span>
             </li>
+            <li class="mb-2">
+              <span class="h6">Drive License</span>
+              <span>Class 2</span>
+            </li>
+            <li class="mb-2">
+              <span class="h6">Contract Type</span>
+              <span>Permenant</span>
+            </li>
+
+
+
           </ul>
           <div class="d-flex justify-content-center">
             <a href="javascript:;" class="btn btn-primary me-4" data-bs-target="#editUser" data-bs-toggle="modal">Edit</a>
@@ -128,7 +139,7 @@
     </div>
     <!-- /User Card -->
     <!-- Plan Card -->
-    <div class="card mb-6 border border-2 border-primary rounded primary-shadow">
+    <!-- <div class="card mb-6 border border-2 border-primary rounded primary-shadow">
       <div class="card-body">
         <div class="d-flex justify-content-between align-items-start">
           <span class="badge bg-label-primary">Standard</span>
@@ -155,7 +166,7 @@
           <button class="btn btn-primary" data-bs-target="#upgradePlanModal" data-bs-toggle="modal">Upgrade Plan</button>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- /Plan Card -->
   </div>
   <!--/ User Sidebar -->
@@ -168,7 +179,7 @@
       <ul class="nav nav-pills flex-column flex-md-row flex-wrap mb-6 row-gap-2">
         <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="ti ti-user-check ti-sm me-1_5"></i>Account</a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('app/user/view/security')}}"><i class="ti ti-lock ti-sm me-1_5"></i>Security</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{url('app/user/view/billing')}}"><i class="ti ti-bookmark ti-sm me-1_5"></i>Billing & Plans</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="{{url('app/user/view/billing')}}"><i class="ti ti-bookmark ti-sm me-1_5"></i>Billing & Plans</a></li> -->
         <li class="nav-item"><a class="nav-link" href="{{url('app/user/view/notifications')}}"><i class="ti ti-bell ti-sm me-1_5"></i>Notifications</a></li>
         <li class="nav-item"><a class="nav-link" href="{{url('app/user/view/connections')}}"><i class="ti ti-link ti-sm me-1_5"></i>Connections</a></li>
       </ul>
@@ -176,7 +187,7 @@
     <!--/ User Pills -->
 
     <!-- Project table -->
-    <div class="card mb-6">
+    <!-- <div class="card mb-6">
       <div class="card-datatable table-responsive">
         <table class="datatables-projects table border-top">
           <thead>
@@ -192,11 +203,11 @@
           </thead>
         </table>
       </div>
-    </div>
+    </div> -->
     <!-- /Project table -->
 
     <!-- Activity Timeline -->
-    <div class="card mb-6">
+    <!-- <div class="card mb-6">
       <h5 class="card-header">User Activity Timeline</h5>
       <div class="card-body pt-1">
         <ul class="timeline mb-0">
@@ -275,7 +286,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <!-- /Activity Timeline -->
 
     <!-- Invoice table -->
