@@ -370,9 +370,9 @@
       "slug": "app-user",
       "submenu": [
         {
-          "url": "app/user/list",
+          "url": "/laravel/user-management",
           "name": "List",
-          "slug": "app-user-list"
+          "slug": "/laravel/user-management"
         },
         {
           "name": "View",
