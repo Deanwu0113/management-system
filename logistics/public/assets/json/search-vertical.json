@@ -193,7 +193,7 @@
     {
       "name": "User List",
       "icon": "ti-list-numbers",
-      "url": "app/user/list"
+      "url": "laravel/user-management"
     },
     {
       "name": "User View - Account",

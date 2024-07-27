@@ -123,7 +123,7 @@
     <h5 class="card-title mb-0">Filters</h5>
     <div class="d-flex justify-content-between align-items-center row pt-4 gap-4 gap-md-0">
       <div class="col-md-4 user_role"></div>
-      <div class="col-md-4 user_plan"></div>
+      <div class="col-md-4 user_name"></div>
       <div class="col-md-4 user_status"></div>
     </div>
   </div>
@@ -135,12 +135,34 @@
           <th></th>
           <th>User</th>
           <th>Role</th>
-          <th>Plan</th>
-          <th>Billing</th>
+          <th>Email</th>
+          <!-- <th>Billing</th> -->
           <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
+      <tbody>
+        @foreach($users as $user)
+        <tr>
+          <td></td>
+          <td></td>
+          <td>{{ $user->name }}</td>
+          <td>{{ $user->role }}</td>
+          <td>{{ $user->email }}</td>
+          <td>{{ $user->status}}</td>
+          <td>
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon btn-outline-secondary me-1" data-bs-toggle="modal" data-bs-target="#viewUserModal">
+                <i class="ti ti-eye"></i>
+              </button>
+              <button class="btn btn-icon btn-outline-danger">
+                <i class="ti ti-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
     </table>
   </div>
   <!-- Offcanvas to add new user -->
